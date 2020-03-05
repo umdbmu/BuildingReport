@@ -7,6 +7,14 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var overlayImages = <OverlayImage>[
+      OverlayImage(
+          bounds: LatLngBounds(LatLng(-90, -180), LatLng(90, 180)),
+          opacity: 0.8,
+          imageProvider: NetworkImage(
+              'https://images.pexels.com/photos/231009/pexels-photo-231009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=300&w=600')),
+    ];
+
     return MaterialApp(
       title: 'Flutter Map',
       home: new FlutterMap(
@@ -15,9 +23,7 @@ class MyApp extends StatelessWidget {
           zoom: 13.0,
         ),
         layers: [
-          new TileLayerOptions(
-              urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-              subdomains: ['a', 'b', 'c']),
+          OverlayImageLayerOptions(overlayImages: overlayImages),
           new MarkerLayerOptions(
             markers: [
               new Marker(
