@@ -1,8 +1,9 @@
+import 'package:buildingreport/geo_location.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(GetLocationPage());
 
 class MyApp extends StatelessWidget {
   @override
